@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@500;700;800;900&family=Poppins:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Montserrat", "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-royal-dark: #020412;
+  --color-royal-blue: #09122c;
+  --color-royal-light: #162447;
+  --color-accent-yellow: #facc15;
+  --color-accent-hover: #eab308;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-royal-dark text-slate-200 overflow-x-hidden selection:bg-accent-yellow selection:text-royal-dark;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    @apply rounded-[24px];
+  }
+  
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.5);
+    @apply rounded-[24px];
+  }
+
+  .text-glow {
+    text-shadow: 0 0 30px rgba(250, 204, 21, 0.6);
+  }
+  
+  .box-glow {
+    box-shadow: 0 0 30px rgba(250, 204, 21, 0.4);
+  }
+
+  .yellow-glow {
+    box-shadow: 0 0 30px rgba(250, 204, 21, 0.3);
+  }
+  
+  .blue-glow {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+  }
+
+  .diagonal-bg {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: #facc15;
+    transform: rotate(45deg);
+    z-index: 0;
+    opacity: 0.1;
+    filter: blur(100px);
+  }
+
+  .diagonal-bg-bottom {
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 650px;
+    height: 650px;
+    background: #3b82f6;
+    transform: rotate(45deg);
+    z-index: 0;
+    opacity: 0.1;
+    filter: blur(120px);
+  }
+
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500;
+  }
+}
+
+/* Hide scrollbar for cleaner look but keep functionality */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-royal-dark;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-royal-light rounded-full hover:bg-slate-700 transition-colors;
+}
